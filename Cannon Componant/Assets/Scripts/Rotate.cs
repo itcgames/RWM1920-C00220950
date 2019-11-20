@@ -4,19 +4,31 @@ using UnityEngine;
 
 public class Rotate : MonoBehaviour
 {
-    public Transform pos;
-    public int turnSpeed;
+    public Transform transform;
+    public float turnSpeed;
+    public int InitialAngle;
+
+    private float angle;
+
+    void Start()
+    {
+        angle = InitialAngle;
+    }
 
     void Update()
     {
         if (Input.GetKey("a"))
         {
-            transform.RotateAround(pos.position, Vector3.forward, turnSpeed * Time.deltaTime);
+            angle += turnSpeed;
+            //transform.RotateAround(pos.position, Vector3.forward, turnSpeed * Time.deltaTime);
         }
 
         if (Input.GetKey("d"))
         {
-            transform.RotateAround(pos.position, Vector3.forward, -turnSpeed * Time.deltaTime);
+            angle -= turnSpeed;
+            //transform.RotateAround(pos.position, Vector3.forward, -turnSpeed * Time.deltaTime);
         }
+
+        transform.localEulerAngles = new Vector3(0, 0, angle);
     }
 }

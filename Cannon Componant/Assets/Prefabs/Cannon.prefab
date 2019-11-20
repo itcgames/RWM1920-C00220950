@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1321677625506467347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3864315917389592561}
+  m_Layer: 0
+  m_Name: BarrelPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3864315917389592561
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321677625506467347}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4888455108115021056}
+  m_Father: {fileID: 4888455108209591400}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4888455108115021059
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,7 +43,6 @@ GameObject:
   - component: {fileID: 4888455108115021063}
   - component: {fileID: 4888455108115021062}
   - component: {fileID: 4888455108115021057}
-  - component: {fileID: 4888455108115021060}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -27,12 +57,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4888455108115021059}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 1.118, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.8, z: 0.5}
+  m_LocalScale: {x: 0.50000024, y: 0.8000005, z: 0.5}
   m_Children:
   - {fileID: 4888455108161603615}
-  m_Father: {fileID: 4888455108209591400}
+  m_Father: {fileID: 3864315917389592561}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!33 &4888455108115021063
@@ -106,20 +136,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0000004, y: 2.0000005}
   m_EdgeRadius: 0
---- !u!114 &4888455108115021060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4888455108115021059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1671c54755865e94da0db0af0e039209, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pos: {fileID: 4888455108209591400}
-  turnSpeed: 50
 --- !u!1 &4888455108161603614
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,6 +179,7 @@ GameObject:
   - component: {fileID: 4888455108209591402}
   - component: {fileID: 4888455108209591397}
   - component: {fileID: 4888455108209591401}
+  - component: {fileID: 1998847898285694744}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -181,7 +198,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4888455108115021056}
+  - {fileID: 3864315917389592561}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -273,3 +290,18 @@ MonoBehaviour:
   firePoint: {fileID: 4888455108161603615}
   FireStrength: 500
   fireDelay: 1
+--- !u!114 &1998847898285694744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4888455108209591396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1671c54755865e94da0db0af0e039209, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transform: {fileID: 3864315917389592561}
+  turnSpeed: 5
+  InitialAngle: 0
