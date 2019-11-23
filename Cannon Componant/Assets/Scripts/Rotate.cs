@@ -13,8 +13,8 @@ public class Rotate : MonoBehaviour
     public float turnSpeed;
     public int InitialAngle;
 
-    private float angle;
-    private bool automaticMovingClockwise;
+    public float angle { get; set; }
+    public bool automaticMovingClockwise { get; set; }
 
     void Start()
     {
@@ -24,7 +24,6 @@ public class Rotate : MonoBehaviour
 
     void Update()
     {
-
         if (autoRotate)
         {
             handleAutomatic();
@@ -75,7 +74,7 @@ public class Rotate : MonoBehaviour
     public void changeAngle(float val)
     {
         angle += val;
-        
+
         if (angle >= 360)
         {
             angle -= 360;

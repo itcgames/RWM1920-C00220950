@@ -33,13 +33,22 @@ namespace Tests
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
         // `yield return null;` to skip a frame.
         [UnityTest]
-        public IEnumerator RotateTestsWithEnumeratorPasses()
+        public IEnumerator BarrelRotationIsUpdatedWithAngle()
         {
+            Rotate script = gameObject.GetComponent<Rotate>();
+            gameObject.transform.GetChild(0).transform.localEulerAngles = new Vector3(0, 0, 180);
+            script.angle = 0;
+            script.autoRotate = false;
+
             // Use the Assert class to test conditions.
             // Use yield to skip a frame.
 
             yield return new WaitForSeconds(0.1f);
-            yield return null;
+
+            float result = gameObject.transform.GetChild(0).transform.localEulerAngles.z;
+            float expectedResult = 0;
+
+            Assert.AreEqual(expectedResult, result);
         }
     }
 }
