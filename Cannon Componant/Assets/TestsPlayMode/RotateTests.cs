@@ -37,6 +37,8 @@ namespace Tests
         {
             // Use the Assert class to test conditions.
             // Use yield to skip a frame.
+
+            yield return new WaitForSeconds(0.1f);
             yield return null;
         }
     }

@@ -49,7 +49,6 @@ public class Rotate : MonoBehaviour
         float distanceToAngle = angle - autoAngle1;
         if (distanceToAngle < 0) { distanceToAngle *= -1; }
         if (distanceToAngle < turnSpeed) { automaticMovingClockwise = !automaticMovingClockwise; }
-        Debug.Log(angle + ", " + distanceToAngle);
 
         distanceToAngle = angle - autoAngle2;
         if (distanceToAngle < 0) { distanceToAngle *= -1; }

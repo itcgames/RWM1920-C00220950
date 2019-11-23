@@ -10,6 +10,19 @@ namespace Tests
     {
         private GameObject gameObject;
 
+        [SetUp]
+        public void Setup()
+        {
+            gameObject = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Prefabs/Cannon"));
+            Rotate script = gameObject.GetComponent<Rotate>();
+        }
+
+        [TearDown]
+        public void Teardown()
+        {
+            Object.DestroyImmediate(gameObject);
+        }
+
         // A Test behaves as an ordinary method
         [Test]
         public void NewTestScriptSimplePasses()
@@ -25,7 +38,6 @@ namespace Tests
             // Use the Assert class to test conditions.
             // Use yield to skip a frame.
 
-            yield return new WaitForSeconds(0.1f);
             yield return null;
         }
     }
