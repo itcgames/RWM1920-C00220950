@@ -333,7 +333,7 @@ PrefabInstance:
     - target: {fileID: 1998847898285694744, guid: 52df8223d76bc514186d40811d7a2662,
         type: 3}
       propertyPath: autoRotate
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1998847898285694744, guid: 52df8223d76bc514186d40811d7a2662,
         type: 3}
