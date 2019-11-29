@@ -20,26 +20,19 @@ public class FireObject : MonoBehaviour
 
         if (Input.GetKey("space") && fireCooldown <= 0 && !autoFire)
         {
-            fireCooldown = fireDelay;
-            GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation) as GameObject;
-            bullet.GetComponent<Rigidbody2D>().AddRelativeForce(transform.up * -FireStrength);
-            //bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 10);
+            FireBullet();
         }
         
         if (fireCooldown <= 0 && autoFire)
         {
             if(!fireOnce)
             {
-                fireCooldown = fireDelay;
-                GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation) as GameObject;
-                bullet.GetComponent<Rigidbody2D>().AddRelativeForce(transform.up * -FireStrength);
+                FireBullet();
             }
             else if(fireOnce && !hasFired)
             {
                 hasFired = true;
-                fireCooldown = fireDelay;
-                GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation) as GameObject;
-                bullet.GetComponent<Rigidbody2D>().AddRelativeForce(transform.up * -FireStrength);
+                FireBullet();
             }
         }
     }
@@ -50,5 +43,13 @@ public class FireObject : MonoBehaviour
         Destroy(projectile);
         projectile = other.gameObject;
         other.transform.position = new Vector3(1000, 1000, 0);
+    }
+
+    void FireBullet()
+    {
+        fireCooldown = fireDelay;
+        GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation) as GameObject;
+        bullet.GetComponent<Rigidbody2D>().AddRelativeForce(transform.up * -FireStrength);
+        Physics.IgnoreCollision(bullet.GetComponent<Collider>(), GetComponent<Collider>());
     }
 }
