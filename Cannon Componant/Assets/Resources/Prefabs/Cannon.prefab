@@ -290,6 +290,8 @@ MonoBehaviour:
   firePoint: {fileID: 4888455108161603615}
   FireStrength: 500
   fireDelay: 1
+  autoFire: 1
+  fireOnce: 1
 --- !u!114 &1998847898285694744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +307,7 @@ MonoBehaviour:
   autoRotate: 1
   autoAngle1: 0
   autoAngle2: 90
-  startMovingClockwise: 1
+  startMovingClockwise: 0
   transform: {fileID: 3864315917389592561}
   turnSpeed: 2
-  InitialAngle: -10
+  InitialAngle: 0
