@@ -13,6 +13,12 @@ public class FireObject : MonoBehaviour
     public bool fireOnContact;
     private bool hasFired = true;
     private float fireCooldown;
+    AudioSource audioData;
+
+    void Start()
+    {
+        audioData = GetComponent<AudioSource>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -53,7 +59,8 @@ public class FireObject : MonoBehaviour
     {
         fireCooldown = fireDelay;
         GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation) as GameObject;
-        bullet.GetComponent<Rigidbody2D>().AddRelativeForce(transform.up * -FireStrength);
+        bullet.GetComponent<Rigidbody2D>().AddRelativeForce(-transform.right * -FireStrength);
         Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        audioData.Play();
     }
 }
