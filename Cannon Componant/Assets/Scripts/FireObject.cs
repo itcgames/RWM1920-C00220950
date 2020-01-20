@@ -10,6 +10,7 @@ public class FireObject : MonoBehaviour
     public float fireDelay;
     public bool autoFire;
     public bool fireOnce;
+    public bool fireOnContact;
     private bool hasFired = true;
     private float fireCooldown;
 
@@ -22,14 +23,14 @@ public class FireObject : MonoBehaviour
         {
             FireBullet();
         }
-        
+
         if (fireCooldown <= 0 && autoFire)
         {
-            if(!fireOnce)
+            if (!fireOnce)
             {
                 FireBullet();
             }
-            else if(fireOnce && !hasFired)
+            else if (fireOnce && !hasFired)
             {
                 hasFired = true;
                 FireBullet();
@@ -39,10 +40,13 @@ public class FireObject : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        hasFired = false;
-        Destroy(projectile);
-        projectile = other.gameObject;
-        other.transform.position = new Vector3(1000, 1000, 0);
+        if (fireOnContact && other.rigidbody)
+        {
+            hasFired = false;
+            Destroy(projectile);
+            projectile = other.gameObject;
+            other.transform.position = new Vector3(1000, 1000, 0);
+        }
     }
 
     void FireBullet()
