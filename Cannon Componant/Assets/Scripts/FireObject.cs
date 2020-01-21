@@ -52,6 +52,7 @@ public class FireObject : MonoBehaviour
             Destroy(projectile);
             projectile = other.gameObject;
             other.transform.position = new Vector3(1000, 1000, 0);
+            other.gameObject.SetActive(false);
         }
     }
 
@@ -59,8 +60,17 @@ public class FireObject : MonoBehaviour
     {
         fireCooldown = fireDelay;
         GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation) as GameObject;
+
+        bullet.SetActive(true);
         bullet.GetComponent<Rigidbody2D>().AddRelativeForce(-transform.right * -FireStrength);
-        Physics2D.IgnoreCollision(bullet.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        StartCoroutine(TempIgnore(bullet, 0.5f));
         audioData.Play();
+    }
+
+    private IEnumerator TempIgnore(GameObject obj, float delay)
+    {
+        Physics2D.IgnoreCollision(obj.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        yield return new WaitForSeconds(delay);
+        Physics2D.IgnoreCollision(obj.GetComponent<Collider2D>(), GetComponent<Collider2D>(), false);
     }
 }
