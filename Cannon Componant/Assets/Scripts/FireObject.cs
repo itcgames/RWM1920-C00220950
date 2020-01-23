@@ -56,7 +56,7 @@ public class FireObject : MonoBehaviour
         }
     }
 
-    void FireBullet()
+    public void FireBullet()
     {
         fireCooldown = fireDelay;
         GameObject bullet = Instantiate(projectile, firePoint.position, firePoint.rotation) as GameObject;

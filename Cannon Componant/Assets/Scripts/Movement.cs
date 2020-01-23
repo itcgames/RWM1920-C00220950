@@ -27,7 +27,6 @@ public class Movement : MonoBehaviour
         {
             if (movingTowardsPosition1)
             {
-                Debug.Log("test1");
                 if (MoveTo(position1))
                 {
                     movingTowardsPosition1 = false;
@@ -35,7 +34,6 @@ public class Movement : MonoBehaviour
             }
             else
             {
-                Debug.Log("test1");
                 if (MoveTo(position2))
                 {
                     movingTowardsPosition1 = true;
@@ -44,7 +42,7 @@ public class Movement : MonoBehaviour
         }
     }
 
-    bool MoveTo(Vector2 position)
+    public bool MoveTo(Vector2 position)
     {
         transform.position = Vector3.MoveTowards(transform.position, position, speed);
 

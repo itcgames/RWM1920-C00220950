@@ -4,9 +4,10 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace Tests
+
+namespace MovementTests
 {
-    public class RotateTests
+    public class MovementTests : MonoBehaviour
     {
         private GameObject gameObject;
 
@@ -24,7 +25,7 @@ namespace Tests
 
         // A Test behaves as an ordinary method
         [Test]
-        public void RotateTestsSimplePasses()
+        public void MovementTestsSimplePasses()
         {
             // Use the Assert class to test conditions
         }
@@ -32,22 +33,20 @@ namespace Tests
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
         // `yield return null;` to skip a frame.
         [UnityTest]
-        public IEnumerator BarrelRotationIsUpdatedWithAngle()
+        public IEnumerator GameObjectCanMove()
         {
-            Rotate script = gameObject.GetComponent<Rotate>();
-            gameObject.transform.GetChild(0).transform.localEulerAngles = new Vector3(0, 0, 180);
-            script.angle = 0;
-            script.autoRotate = false;
+            Movement script = gameObject.GetComponent<Movement>();
+            gameObject.transform.position = new Vector3(0, 0, 0);
+            Vector3 initial = gameObject.transform.position;
+            script.speed = 2.0f;
 
-            // Use the Assert class to test conditions.
-            // Use yield to skip a frame.
-
+            script.MoveTo(new Vector2(0,10));
             yield return new WaitForSeconds(0.1f);
 
-            float result = gameObject.transform.GetChild(0).transform.localEulerAngles.z;
-            float expectedResult = 0;
+            Vector3 result = gameObject.transform.position;
+            Debug.Log(result);
 
-            Assert.AreEqual(expectedResult, result);
+            Assert.AreNotEqual(initial, result);
         }
     }
 }

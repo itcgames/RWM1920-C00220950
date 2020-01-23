@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 16
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsPlayMode", "TestsPlayMode.csproj", "{2A9A8DDC-2E3E-F9C4-1AF5-1C53931CEA0F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scripts", "Scripts.csproj", "{B81F9A0B-FC51-6F8E-ACD4-91FF5C256397}"
