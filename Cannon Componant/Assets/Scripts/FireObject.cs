@@ -44,9 +44,9 @@ public class FireObject : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
-        if (fireOnContact && other.GetComponent<Rigidbody2D>())
+        if (fireOnContact && other.rigidbody)
         {
             hasFired = false;
             Destroy(projectile);
@@ -70,7 +70,15 @@ public class FireObject : MonoBehaviour
     private IEnumerator TempIgnore(GameObject obj, float delay)
     {
         Physics2D.IgnoreCollision(obj.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        foreach (Collider2D c in GetComponentsInChildren<Collider2D>())
+        {
+            Physics2D.IgnoreCollision(obj.GetComponent<Collider2D>(), c);
+        }
         yield return new WaitForSeconds(delay);
         Physics2D.IgnoreCollision(obj.GetComponent<Collider2D>(), GetComponent<Collider2D>(), false);
+        foreach (Collider2D c in GetComponentsInChildren<Collider2D>())
+        {
+            Physics2D.IgnoreCollision(obj.GetComponent<Collider2D>(), c, false);
+        }
     }
 }
