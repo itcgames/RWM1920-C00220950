@@ -456,26 +456,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4888455108209591401, guid: 52df8223d76bc514186d40811d7a2662,
-        type: 3}
-      propertyPath: fireOnContact
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4888455108209591401, guid: 52df8223d76bc514186d40811d7a2662,
-        type: 3}
-      propertyPath: autoFire
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4888455108209591401, guid: 52df8223d76bc514186d40811d7a2662,
-        type: 3}
-      propertyPath: fireOnce
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8205428068707468428, guid: 52df8223d76bc514186d40811d7a2662,
-        type: 3}
-      propertyPath: move
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4888455107098707204, guid: 52df8223d76bc514186d40811d7a2662, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52df8223d76bc514186d40811d7a2662, type: 3}

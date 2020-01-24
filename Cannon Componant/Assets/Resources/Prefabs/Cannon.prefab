@@ -195,9 +195,9 @@ MonoBehaviour:
   firePoint: {fileID: 4888455108161603615}
   FireStrength: 500
   fireDelay: 1
-  autoFire: 1
-  fireOnce: 1
-  fireOnContact: 1
+  autoFire: 0
+  fireOnce: 0
+  fireOnContact: 0
 --- !u!114 &1998847898285694744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1636ddf9f97e7b643842dd5b1c7c85ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: 1
+  move: 0
   position1: {x: 10, y: 10}
   position2: {x: 20, y: 20}
   speed: 0.1
@@ -291,10 +291,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -2.013403}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -305,7 +305,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15.37, y: 8.64}
+  m_Size: {x: 15.37, y: 4.6131935}
   m_EdgeRadius: 0
 --- !u!82 &4614228776703041385
 AudioSource:

@@ -44,9 +44,9 @@ public class FireObject : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (fireOnContact && other.rigidbody)
+        if (fireOnContact && other.GetComponent<Rigidbody2D>())
         {
             hasFired = false;
             Destroy(projectile);
