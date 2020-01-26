@@ -6,7 +6,7 @@ using UnityEngine.TestTools;
 
 namespace Tests
 {
-    public class RotateTests
+    public class RotateTests : MonoBehaviour
     {
         private GameObject gameObject;
 
@@ -19,7 +19,9 @@ namespace Tests
         [TearDown]
         public void Teardown()
         {
-            Object.DestroyImmediate(gameObject);
+            GameObject[] allObjects = FindObjectsOfType<GameObject>();
+            foreach (GameObject go in allObjects)
+                Destroy(go);
         }
 
         // A Test behaves as an ordinary method
@@ -59,12 +61,22 @@ namespace Tests
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
         // `yield return null;` to skip a frame.
         [UnityTest]
-        public IEnumerator TestsWithEnumeratorPasses()
+        public IEnumerator BarrelRotationIsUpdatedWithAngle()
         {
+            Rotate script = gameObject.GetComponent<Rotate>();
+            gameObject.transform.GetChild(0).transform.localEulerAngles = new Vector3(0, 0, 180);
+            script.angle = 0;
+            script.autoRotate = false;
+
             // Use the Assert class to test conditions.
             // Use yield to skip a frame.
 
-            yield return null;
+            yield return new WaitForSeconds(0.1f);
+
+            float result = gameObject.transform.GetChild(0).transform.localEulerAngles.z;
+            float expectedResult = 0;
+
+            Assert.AreEqual(expectedResult, result);
         }
     }
 }
